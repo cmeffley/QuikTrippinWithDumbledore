@@ -14,6 +14,5 @@ namespace QuikTrippinWithDumbledore.Store
         public AssistantManager AssistantManager { get; set; }
         public List<Associate> AssociateStoreList { get; set; }
         public double Gas { get; set; }
-
     }
 }

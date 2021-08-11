@@ -9,7 +9,7 @@ namespace QuikTrippinWithDumbledore
     class StoreSales
     {
         //Quarterly sales:
-        //Gas
+        //Gas Current Quarter & 
         //Retail
         // use methods to create claculations for quarterly and annual sales 
     }

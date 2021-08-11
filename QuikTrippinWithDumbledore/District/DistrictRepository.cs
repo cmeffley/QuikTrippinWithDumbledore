@@ -25,5 +25,6 @@ namespace QuikTrippinWithDumbledore.District
         {
             _districts.Add(district);
         }
+
     }
 }

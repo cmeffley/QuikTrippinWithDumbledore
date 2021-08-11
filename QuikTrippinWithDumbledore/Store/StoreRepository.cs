@@ -8,7 +8,14 @@ namespace QuikTrippinWithDumbledore.Store
 {
     class StoreRepository
     {
-        static List<StoreBase> _stores = new List<StoreBase>();
+        static List<StoreBase> _stores = new List<StoreBase>
+        {
+            new StoreBase
+            {
+                StoreNumber = 001,
+
+            }
+        };
 
         public List<StoreBase> GetStores()
         {
