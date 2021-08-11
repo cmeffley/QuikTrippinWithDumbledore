@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuikTrippinWithDumbledore.Employee
 {
-    class DistrictManager
+    class DistrictManager : Employee
     {
     }
 }
