@@ -8,9 +8,13 @@ namespace QuikTrippinWithDumbledore.Store
 {
     class StoreRepository
     {
-        static List<Store> _stores = new List<Store>()
-        {
+        static List<Store> _stores = new List<Store>();
 
-        };
+        public List<Store> GetStores()
+        {
+            //return store;
+            throw new NotImplementedException();
+        }
+       
     }
 }
