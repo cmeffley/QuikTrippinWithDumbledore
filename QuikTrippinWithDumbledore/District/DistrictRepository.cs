@@ -8,22 +8,22 @@ namespace QuikTrippinWithDumbledore.District
 {
     class DistrictRepository
     {
-        static List<District> _district = new List<District>
+        static List<DistrictBase> _districts = new List<DistrictBase>
         {
-            new District{DistrictName="North"},
-            new District{DistrictName="South"},
-            new District{DistrictName="East"},
-            new District{DistrictName="West"},
+            new DistrictBase{DistrictName="North"},
+            new DistrictBase{DistrictName="South"},
+            new DistrictBase{DistrictName="East"},
+            new DistrictBase{DistrictName="West"},
         };
 
-        public List<District> GetDistricts()
+        public List<DistrictBase> GetDistricts()
         {
-            return _district;
+            return _districts;
         }
 
-        public void Add(District district)
+        public void AddNewDistrict(DistrictBase district)
         {
-            _district.Add(district);
+            _districts.Add(district);
         }
     }
 }

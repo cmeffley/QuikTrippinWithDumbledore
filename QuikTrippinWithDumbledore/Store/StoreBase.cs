@@ -7,7 +7,7 @@ using QuikTrippinWithDumbledore.Employee;
 
 namespace QuikTrippinWithDumbledore.Store
 {
-    class Store
+    class StoreBase
     {
         public int StoreNumber { get; set; }
         public StoreManager StoreManager { get; set; }
