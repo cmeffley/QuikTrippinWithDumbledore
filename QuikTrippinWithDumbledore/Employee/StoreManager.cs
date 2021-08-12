@@ -14,7 +14,7 @@ namespace QuikTrippinWithDumbledore.Employee
         public bool BalanceBooks { get; set; } = true;
         public bool OrderInventory { get; set; } = true;
         public bool OrderEquipmentServicing { get; set; } = true;
-        public void Hire(string firstName, string lastName, int employeeId)
+        public void HireAssociate(string firstName, string lastName, int employeeId)
         {
             var newHire = new Associate
             {
@@ -26,12 +26,13 @@ namespace QuikTrippinWithDumbledore.Employee
             var repo = new EmployeeRepository();
             repo.AddAssociate(newHire);
         }
-        public void Fire(string firstName, string lastName, int employeeId)
+        public void FireAssociate(int associateId)
         {
-            //remove them from list
-            //make a similar function for assistant manager
+            var repo = new EmployeeRepository();
+            var associate = repo.GetAssociate(associateId);
+            repo.RemoveAssociate(associate);
         }
-        public void Promote(int associateID)
+        public void PromoteAssociate(int associateID)
         {
             var repo = new EmployeeRepository();
             var associate = repo.GetAssociate(associateID);
@@ -45,11 +46,6 @@ namespace QuikTrippinWithDumbledore.Employee
             repo.AddAssistantManager(newAssistantManager);
         }
 
-        private void GetAssociate(int associateID)
-        {
-            throw new NotImplementedException();
-        }
-
         public void HireAssistantManagerFromOutside(string firstName, string lastName, int employeeId)
         {
             var newAssistantManager = new AssistantManager
@@ -61,6 +57,12 @@ namespace QuikTrippinWithDumbledore.Employee
             };
             var repo = new EmployeeRepository();
             repo.AddAssistantManager(newAssistantManager);
+        }
+        public void FireAssistantManager(int assistantId)
+        {
+            var repo = new EmployeeRepository();
+            var assistantManager = repo.GetAssistant(assistantId);
+            repo.RemoveAssistantManager(assistantManager);
         }
     }
 }
