@@ -10,8 +10,8 @@ namespace QuikTrippinWithDumbledore.District
 {
     class DistrictBase
     {
-        //public List<StoreBase> StoreList { get; set; }
-        //public DistrictManager DistrictManager { get; set; }
+        public List<StoreBase> StoreList { get; set; }
+        public DistrictManager DistrictManager { get; set; }
         public string DistrictName { get; set; }
     }
 }

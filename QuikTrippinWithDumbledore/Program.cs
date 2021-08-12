@@ -14,9 +14,11 @@ namespace QuikTrippinWithDumbledore
 
             districtRepo.AddNewDistrict(new DistrictBase { DistrictName = userInputDistrict });
 
+            districtRepo.RemoveDistrict(userInputDistrict);
+
             districtRepo.GetDistricts();
 
-            //add working
+            
 
         }
     }
