@@ -33,6 +33,12 @@ namespace QuikTrippinWithDumbledore.Store
             var storeToRemove = _stores.First(store => store.StoreNumber == storeNumber);
             _stores.Remove(storeToRemove);
         }
+
+        public static StoreBase GetSingleStoreNumber(int specificStore)
+        {
+            return _stores.First(store => store.StoreNumber == specificStore);
+        }
+
     }
 
 }

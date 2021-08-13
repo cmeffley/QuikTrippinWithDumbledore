@@ -1,8 +1,5 @@
-﻿
-using QuikTrippinWithDumbledore.District;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using QuikTrippinWithDumbledore.District;
 
 namespace QuikTrippinWithDumbledore
 {
