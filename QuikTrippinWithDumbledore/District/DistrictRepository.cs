@@ -10,7 +10,7 @@ namespace QuikTrippinWithDumbledore.District
     {
         static List<DistrictBase> _districts = new List<DistrictBase>
         {
-            new DistrictBase{DistrictName="North"},
+            new DistrictBase{DistrictName="North"}, //need to add StoreList & DistrictManager
             new DistrictBase{DistrictName="South"},
             new DistrictBase{DistrictName="East"},
             new DistrictBase{DistrictName="West"},
@@ -24,6 +24,12 @@ namespace QuikTrippinWithDumbledore.District
         public void AddNewDistrict(DistrictBase district)
         {
             _districts.Add(district);
+        }
+
+        public void RemoveDistrict(string districtName)
+        {
+            var districtToRemove = _districts.First(district => district.DistrictName == districtName);
+            _districts.Remove(districtToRemove);
         }
     }
 }
