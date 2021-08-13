@@ -38,5 +38,10 @@ namespace QuikTrippinWithDumbledore.Store
             AssistantManager = assistantManager;
             AssociateStoreList = associates;
         }
+
+        public StoreBase()
+        {
+
+        }
     }
 }

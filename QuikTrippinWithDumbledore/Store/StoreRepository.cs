@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuikTrippinWithDumbledore.District;
 using QuikTrippinWithDumbledore.Employee;
 
 namespace QuikTrippinWithDumbledore.Store
 {
     class StoreRepository
     {
-        static List<StoreBase> _stores = new List<StoreBase>
+        static List<StoreBase> _stores = new List<StoreBase>()
         {
-            new StoreBase
+            new StoreBase()
             {
                 StoreNumber = 001,
-                YearlyGasSales = 3342341.44m, 
+                YearlyGasSales = 3342341.44m,
                 CurrentQuarterGasSales = 122135.24m,
-                StoreManager = StoreManager
+                District = new DistrictBase(),
+                StoreManager = new StoreManager(),
+                AssistantManager = new AssistantManager(),
+                AssociateStoreList = new List<Associate>()
                 //how do I associate class StoreManager with these properties
                 //to add an instance of StoreManager?
-            },
-            new StoreBase{StoreNumber = 002, YearlyGasSales = 3342322.44m, CurrentQuarterGasSales = 12235.24m},
-            new StoreBase{StoreNumber = 003, YearlyGasSales = 140419.34m, CurrentQuarterGasSales = 12435.24m},
-            new StoreBase{StoreNumber = 004, YearlyGasSales = 2330419.34m, CurrentQuarterGasSales = 12445.24m}
-            //need to add employees from EmpoloyeeRepository 
+            }
+            //new StoreBase{StoreNumber = 002, YearlyGasSales = 3342322.44m, CurrentQuarterGasSales = 12235.24m},
+            //new StoreBase{StoreNumber = 003, YearlyGasSales = 140419.34m, CurrentQuarterGasSales = 12435.24m},
+            //new StoreBase{StoreNumber = 004, YearlyGasSales = 2330419.34m, CurrentQuarterGasSales = 12445.24m}
         };
 
         public List<StoreBase> GetStores()
