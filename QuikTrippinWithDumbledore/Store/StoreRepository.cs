@@ -15,11 +15,11 @@ namespace QuikTrippinWithDumbledore.Store
             new StoreBase
             {
                 StoreNumber = 001,
-                GasSales = 1140419.34m
+                YearlyGasSales = 1140419.34m
             },
-            new StoreBase{StoreNumber = 002, GasSales = 3342322.44m},
-            new StoreBase{StoreNumber = 003, GasSales = 140419.34m},
-            new StoreBase{StoreNumber = 004, GasSales = 2330419.34m}
+            new StoreBase{StoreNumber = 002, YearlyGasSales = 3342322.44m},
+            new StoreBase{StoreNumber = 003, YearlyGasSales = 140419.34m},
+            new StoreBase{StoreNumber = 004, YearlyGasSales = 2330419.34m}
         };
 
         public List<StoreBase> GetStores()
