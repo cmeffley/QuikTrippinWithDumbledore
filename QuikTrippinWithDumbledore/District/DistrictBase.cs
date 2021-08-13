@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuikTrippinWithDumbledore.Store;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace QuikTrippinWithDumbledore.District
 {
-    class District
+    class DistrictBase
     {
         public string DistrictName { get; set; }
-        //need to add DistrictManager
-        //first create  EmployeeBase then DistrictManager inherits
+        public List<StoreBase> StoreList { get; set; }
+        //public DistrictManager DistrictManager { get; set; }
     }
 }
