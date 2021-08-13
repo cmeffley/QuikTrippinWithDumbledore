@@ -13,6 +13,7 @@ namespace QuikTrippinWithDumbledore.Store
         public StoreManager StoreManager { get; set; }
         public AssistantManager AssistantManager { get; set; }
         public List<Associate> AssociateStoreList { get; set; }
-        public decimal GasSales { get; set; }
+        public decimal YearlyGasSales { get; set; }
+        public decimal CurrentQuarterGasSales { get; set; }
     }
 }
