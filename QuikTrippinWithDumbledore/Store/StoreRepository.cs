@@ -16,6 +16,7 @@ namespace QuikTrippinWithDumbledore.Store
                 StoreNumber = 001,
                 YearlyGasSales = 3342341.44m, 
                 CurrentQuarterGasSales = 122135.24m,
+                StoreManager = StoreManager
                 //how do I associate class StoreManager with these properties
                 //to add an instance of StoreManager?
             },
