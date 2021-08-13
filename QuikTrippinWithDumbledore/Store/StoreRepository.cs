@@ -11,7 +11,14 @@ namespace QuikTrippinWithDumbledore.Store
     {
         static List<StoreBase> _stores = new List<StoreBase>
         {
-            new StoreBase{StoreNumber = 001, YearlyGasSales = 3342341.44m, CurrentQuarterGasSales = 122135.24m},
+            new StoreBase
+            {
+                StoreNumber = 001,
+                YearlyGasSales = 3342341.44m, 
+                CurrentQuarterGasSales = 122135.24m,
+                //how do I associate class StoreManager with these properties
+                //to add an instance of StoreManager?
+            },
             new StoreBase{StoreNumber = 002, YearlyGasSales = 3342322.44m, CurrentQuarterGasSales = 12235.24m},
             new StoreBase{StoreNumber = 003, YearlyGasSales = 140419.34m, CurrentQuarterGasSales = 12435.24m},
             new StoreBase{StoreNumber = 004, YearlyGasSales = 2330419.34m, CurrentQuarterGasSales = 12445.24m}
