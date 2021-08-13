@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using QuikTrippinWithDumbledore.District;
 
 namespace QuikTrippinWithDumbledore
 {
@@ -6,7 +8,18 @@ namespace QuikTrippinWithDumbledore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var districtRepo = new DistrictRepository();
+            Console.WriteLine("Add a new District");
+            var userInputDistrict = Console.ReadLine();
+
+            districtRepo.AddNewDistrict(new DistrictBase { DistrictName = userInputDistrict });
+
+            districtRepo.RemoveDistrict(userInputDistrict);
+
+            districtRepo.GetDistricts();
+
+            
+
         }
     }
 }
