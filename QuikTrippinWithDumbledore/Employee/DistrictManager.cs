@@ -25,7 +25,8 @@ namespace QuikTrippinWithDumbledore.Employee
                 FirstName = firstName,
                 LastName = lastName,
                 EmployeeID = employeeId,
-                RetailSales = 0
+                CurrQtrRetailSales = 0,
+                AnnualRetailSales = 0,
             };
             var repo = new EmployeeRepository();
             repo.AddAssociate(newHire);
@@ -45,7 +46,8 @@ namespace QuikTrippinWithDumbledore.Employee
                 FirstName = associate.FirstName,
                 LastName = associate.LastName,
                 EmployeeID = associate.EmployeeID,
-                RetailSales = 0 //reset sales in new role
+                CurrQtrRetailSales = 0, //reset sales in new role
+                AnnualRetailSales = 0,
             };
             repo.AddAssistantManager(newAssistantManager);
         }
@@ -57,7 +59,8 @@ namespace QuikTrippinWithDumbledore.Employee
                 FirstName = firstName,
                 LastName = lastName,
                 EmployeeID = employeeId,
-                RetailSales = 0
+                CurrQtrRetailSales = 0,
+                AnnualRetailSales = 0,
             };
             var repo = new EmployeeRepository();
             repo.AddAssistantManager(newAssistantManager);
@@ -78,7 +81,8 @@ namespace QuikTrippinWithDumbledore.Employee
                 FirstName = assistant.FirstName,
                 LastName = assistant.LastName,
                 EmployeeID = assistant.EmployeeID,
-                RetailSales = 0 //reset sales in new role
+                CurrQtrRetailSales = 0, //reset sales in new role
+                AnnualRetailSales = 0,
             };
             repo.AddStoreManager(newStoreManager);
         }
@@ -90,7 +94,8 @@ namespace QuikTrippinWithDumbledore.Employee
                 FirstName = firstName,
                 LastName = lastName,
                 EmployeeID = employeeId,
-                RetailSales = 0
+                CurrQtrRetailSales = 0,
+                AnnualRetailSales = 0,
             };
             var repo = new EmployeeRepository();
             repo.AddStoreManager(newStoreManager);
