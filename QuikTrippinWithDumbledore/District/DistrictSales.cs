@@ -8,5 +8,7 @@ namespace QuikTrippinWithDumbledore.District
 {
     class DistrictSales
     {
+        DistrictSales districtSales = new DistrictSales();
+      
     }
 }
