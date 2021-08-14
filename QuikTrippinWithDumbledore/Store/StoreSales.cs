@@ -13,15 +13,8 @@ namespace QuikTrippinWithDumbledore.Store
         //Gas Current Quarter & 
         //Retail
         // use methods to create claculations for quarterly and annual sales 
-        public double GasSales { get; set; }
-       
-        public void AddToCurrentQuarterGasSales()
-        {
-            
-        }
-
-
-
-
+        public double YearlyGasSales { get; set; }
+        public double CurrentQuarterGasSales { get; set; }
+      
     }
 }
