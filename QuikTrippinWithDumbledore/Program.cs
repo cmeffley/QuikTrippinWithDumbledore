@@ -499,7 +499,7 @@ namespace QuikTrippinWithDumbledore
                                 var storeRepo = new StoreRepository();
                                 Console.WriteLine("Create a store ID number, e.g. 001");
                                 var storeNumberInput = Convert.ToInt32(Console.ReadLine());
-                                if (storeRepo.DoesStoreIdAlreadyExist(storeNumberInput))
+                                if (StoreRepository.DoesStoreIdAlreadyExist(storeNumberInput) == false)
                                 {
                                     Console.WriteLine($"{storeNumberInput} already exists... please Enter to start over");
                                     Console.ReadKey();
