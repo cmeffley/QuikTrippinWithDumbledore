@@ -130,7 +130,7 @@ namespace QuikTrippinWithDumbledore.Store
 
         public StoreBase GetSingleStore(int specificStore)
         {
-            return _stores.First(store => store.StoreNumber == specificStore);
+            return _stores.FirstOrDefault(store => store.StoreNumber == specificStore);
         }
 
         public void AddAssociateToStore(int storeNumber, Associate associate)
@@ -157,15 +157,17 @@ namespace QuikTrippinWithDumbledore.Store
             var repo = new StoreRepository();
             var stores = repo.GetStores();
 
-            foreach (var store in stores)
-            {
-                if (store.StoreNumber == storeNumber)
-                {
-                    return true;
-                }
-            }
-            return false;
-            
+            return stores.Any(store => store.StoreNumber == storeNumber); //using Linq version from Nathan's suggestion
+
+            //foreach loop was my first idea & works, but I like how clean using .Any() is 
+            //foreach (var store in stores)
+            //{
+            //    if (store.StoreNumber == storeNumber)
+            //    {
+            //        return true;
+            //    }
+            //}
+            //return false;
         }
     }
 

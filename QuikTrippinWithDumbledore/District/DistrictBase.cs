@@ -12,6 +12,6 @@ namespace QuikTrippinWithDumbledore.District
     {
         public string DistrictName { get; set; }
         public List<StoreBase> StoreList { get; set; }
-        public DistrictManager DistrictManager { get; set; }
+        public List<DistrictManager> DistrictManager { get; set; }
     }
 }

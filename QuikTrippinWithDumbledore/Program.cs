@@ -145,32 +145,52 @@ namespace QuikTrippinWithDumbledore
                                 var storeRepoForDistricts = new StoreRepository();
                                 var allStores = storeRepoForDistricts.GetStores();
                                 Console.WriteLine("Enter the new district's name"); 
-                                //is there time to create a method to check if name exists?
                                 var districtNameInput = Console.ReadLine();
+
                                 Console.WriteLine("Available Stores to Add");
                                 foreach (var eachStore in allStores)
                                 {
                                     var chooseStoreNumber = eachStore.StoreNumber;
                                     Console.WriteLine($"Store Number: { chooseStoreNumber}");
                                 }
-                                Console.WriteLine();
+                                //Console.WriteLine("");
 
-                                Console.WriteLine("Choose stores to add to your new District");
-                                var districtStoreNumberInput = Convert.ToInt32(Console.ReadLine());
-                                var storeToAddToList = storeRepoForDistricts.GetSingleStore(districtStoreNumberInput);
-
+                                //set up the stuff that needs to be shared across iterations first before loop
                                 var districtStoreList = new List<StoreBase>();
-                                districtStoreList.Add(storeToAddToList);
+
+                                Console.WriteLine("Choose store(s) to add to your new District or type '0' to continue...");
+                                var addStoresToDistrictLoop = true;
+                                while (addStoresToDistrictLoop)
+                                {
+                                    var districtStoreNumberInput = Convert.ToInt32(Console.ReadLine());
+                                    var storeToAddToList = storeRepoForDistricts.GetSingleStore   (districtStoreNumberInput);
+                                    districtStoreList.Add(storeToAddToList);
+                                    if (districtStoreNumberInput == 0)
+                                    {
+                                        addStoresToDistrictLoop = false;
+                                    }
+                                }
+                                Console.WriteLine("To choose the district manager, enter their EmployeeID...");
+                                var districtEmployeeRepo = new EmployeeRepository();
+                                var districtManagerList = new List<DistrictManager>();
+                                var allDistrictManagers = districtEmployeeRepo.GetAllDistrictManagers();
+                                foreach (var distMgr in allDistrictManagers)
+                                {
+                                    Console.WriteLine($"ID# {distMgr.EmployeeID}: {distMgr.FirstName} {distMgr.LastName}");
+                                }
+
+                                var chosenDistrictManagerId = Convert.ToInt32(Console.ReadLine());
+                                var chosenDisrictManger = districtEmployeeRepo.GetDistrictManager(chosenDistrictManagerId);
+                                districtManagerList.Add(chosenDisrictManger);
 
                                 var districtRepo = new DistrictRepository();
-
                                 var district = new DistrictBase()
                                 {
                                     DistrictName = districtNameInput,
                                     StoreList = districtStoreList,
-                                    //DistrictManager = 
+                                    DistrictManager = districtManagerList
                                 };
-
+                                Console.WriteLine($"{district.DistrictName}: {district.DistrictManager}");
                                 break;
                             case "2": //Add Store
                                 var storeRepo = new StoreRepository();
@@ -196,7 +216,6 @@ namespace QuikTrippinWithDumbledore
                                 storeRepo.Add(store);
                                 Console.WriteLine($"You added Store #{storeNumberInput}.");
                                 Console.ReadKey();
-                                //Console.WriteLine(storeSubMenu);
 
                                 break;
                             default:

@@ -91,6 +91,16 @@ namespace QuikTrippinWithDumbledore.Employee
             _storeManagers.Remove(storeManager);
         }
 
+        public List<DistrictManager> GetAllDistrictManagers()
+        {
+            return _districtManagers;
+        }
+
+        public DistrictManager GetDistrictManager(int districtManagerId)
+        {
+            return _districtManagers.First(employee => employee.EmployeeID == districtManagerId);
+        }
+
         //public void AddDistrictManager(DistrictManager districtManager)
         //{
         //    _districtManagers.Add(districtManager);
