@@ -143,14 +143,24 @@ namespace QuikTrippinWithDumbledore
                                 Console.WriteLine("Add");
                                 break;
                             case "2": //Add Store
-                                Console.WriteLine("Create a Store Number");
-                                var storeNumber = Console.ReadLine();
-                                Console.WriteLine("Add Yearly Gas Sales");
-                                var storeYearlyGasSales = Console.ReadLine();
-                                Console.WriteLine("Add");
-
                                 var storeRepo = new StoreRepository();
-                                //var createStore = storeRepo.Add()
+
+                                Console.WriteLine("Create the store's ID number, e.g. 001");
+                                var storeNumber = Convert.ToInt32(Console.ReadLine());
+                                storeRepo.DoesStoreAlreadyExist(storeNumber);
+
+                                Console.WriteLine("Enter Yearly Gas Sales");
+                                var storeYearlyGasSales = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Enter Current Quarter Gas Sales");
+                                var storeCurrentQtrGasSales = Convert.ToInt32(Console.ReadLine());
+
+                                var store = new StoreBase()
+                                {
+                                    StoreNumber = storeNumber,
+                                    YearlyGasSales = storeYearlyGasSales,
+                                    CurrentQuarterGasSales = storeCurrentQtrGasSales
+                                };
+                                storeRepo.Add(store);
                                 
 
                                 break;
@@ -159,7 +169,6 @@ namespace QuikTrippinWithDumbledore
                                 break;
                         }
                         break;
-                        ////////////////////////
                     default:
                         Console.WriteLine("Goodbye");
                         loopControl = false;
