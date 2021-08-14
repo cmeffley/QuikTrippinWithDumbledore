@@ -130,7 +130,7 @@ namespace QuikTrippinWithDumbledore.Store
 
         public StoreBase GetSingleStore(int specificStore)
         {
-            return _stores.First(store => store.StoreNumber == specificStore);
+            return _stores.FirstOrDefault(store => store.StoreNumber == specificStore);
         }
 
         public void AddAssociateToStore(int storeNumber, Associate associate)

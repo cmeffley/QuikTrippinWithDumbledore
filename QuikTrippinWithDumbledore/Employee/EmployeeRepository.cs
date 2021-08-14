@@ -137,6 +137,11 @@ namespace QuikTrippinWithDumbledore.Employee
             return distManagers.Any(associate => associate.EmployeeID == DistManId);
         }
 
+        public List<DistrictManager> GetAllDistrictManagers()
+        {
+            return _districtManagers;
+        }
+
         //public void AddDistrictManager(DistrictManager districtManager)
         //{
         //    _districtManagers.Add(districtManager);
