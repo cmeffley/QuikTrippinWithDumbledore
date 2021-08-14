@@ -57,6 +57,16 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _associates.First(employee => employee.EmployeeID == associateId);
         }
+        public List<Associate> GetAllAssociates()
+        {
+            return _associates;
+        }
+        public static bool DoesAssociateIdExist(int assocId)
+        {
+            var repo = new EmployeeRepository();
+            var associates = repo.GetAllAssociates();
+            return associates.Any(associate => associate.EmployeeID == assocId);
+        }
 
         public void RemoveAssociate(Associate associate)
         {
@@ -72,6 +82,16 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _assistantManagers.First(employee => employee.EmployeeID == assistantId);
         }
+        public List<AssistantManager> GetAllAssisManagers()
+        {
+            return _assistantManagers;
+        }
+        public static bool DoesAssisManagerIdExist(int assisId)
+        {
+            var repo = new EmployeeRepository();
+            var assisManager = repo.GetAllAssisManagers();
+            return assisManager.Any(assistant => assistant.EmployeeID == assisId);
+        }
         public void RemoveAssistantManager(AssistantManager assistant)
         {
             _assistantManagers.Remove(assistant);
@@ -86,9 +106,35 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _storeManagers.First(employee => employee.EmployeeID == storeManagerId);
         }
+        public List<StoreManager> GetAllStoreManagers()
+        {
+            return _storeManagers;
+        }
+        public static bool DoesStoreManagerIdExist(int storeManagerId)
+        {
+            var repo = new EmployeeRepository();
+            var storeManager = repo.GetAllStoreManagers();
+            return storeManager.Any(manager => manager.EmployeeID == storeManagerId);
+        }
+
         public void RemoveStoreManager(StoreManager storeManager)
         {
             _storeManagers.Remove(storeManager);
+        }
+
+        public DistrictManager GetDistrictManager(int distManagerID)
+        {
+            return _districtManagers.First(employee => employee.EmployeeID == distManagerID);
+        }
+        public List<DistrictManager> GetAllDistManagers()
+        {
+            return _districtManagers;
+        }
+        public static bool DoesDistricManIdExist(int DistManId)
+        {
+            var repo = new EmployeeRepository();
+            var distManagers = repo.GetAllDistManagers();
+            return distManagers.Any(associate => associate.EmployeeID == DistManId);
         }
 
         //public void AddDistrictManager(DistrictManager districtManager)

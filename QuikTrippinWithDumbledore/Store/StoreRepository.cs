@@ -151,6 +151,14 @@ namespace QuikTrippinWithDumbledore.Store
             var store = repo.GetSingleStore(storeNumber);
             store.StoreManagerList.Add(storeManager);
         }
+
+        public static bool DoesStoreIdAlreadyExist(int storeNum)
+        {
+            var repo = new StoreRepository();
+            var stores = repo.GetStores();
+            return stores.Any(store => store.StoreNumber == storeNum);
+        }
+
     }
 
 }
