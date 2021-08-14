@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuikTrippinWithDumbledore.Employee;
+using System;
 using System.Collections.Generic;
 
 namespace QuikTrippinWithDumbledore
@@ -36,8 +37,86 @@ namespace QuikTrippinWithDumbledore
                         break;
                     case "3":
                         //Add New Employee
-                        Console.WriteLine("Test 3");
-                        break;
+                        Console.WriteLine("Add a new employee.");
+                        Console.WriteLine("Would you like to add an (1) Associate, (2) Assistant Manager, or (3) Store Manager? (Enter 1, 2, or 3)");
+                        string selectType = Console.ReadLine();
+                        if (selectType == "1")
+                        {
+                            Console.WriteLine("You chose Associate.");
+                            Console.WriteLine("Enter employee First Name.");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Enter employee Last Name.");
+                            string lastName = Console.ReadLine();
+                            Console.WriteLine("Set employee's EmployeeId.");
+                            string employeeId = Console.ReadLine();
+                            int employeeIdInt = Convert.ToInt32(employeeId);
+                            var employee = new Associate()
+                            {
+                                FirstName = firstName,
+                                LastName = lastName,
+                                EmployeeID = employeeIdInt,
+                                CurrQtrRetailSales = 0,
+                                AnnualRetailSales = 0,
+                            };
+                            var repo = new EmployeeRepository();
+                            repo.AddAssociate(employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Associate ID {employee.EmployeeID}.");
+                            Console.WriteLine();
+                            break;
+                        }
+                        else if (selectType == "2")
+                        {
+                            Console.WriteLine("You chose Assistant Manager.");
+                            Console.WriteLine("Enter employee First Name.");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Enter employee Last Name.");
+                            string lastName = Console.ReadLine();
+                            Console.WriteLine("Set employee's EmployeeId.");
+                            string employeeId = Console.ReadLine();
+                            int employeeIdInt = Convert.ToInt32(employeeId);
+                            var employee = new AssistantManager()
+                            {
+                                FirstName = firstName,
+                                LastName = lastName,
+                                EmployeeID = employeeIdInt,
+                                CurrQtrRetailSales = 0,
+                                AnnualRetailSales = 0,
+                            };
+                            var repo = new EmployeeRepository();
+                            repo.AddAssistantManager(employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Assistant Manager ID {employee.EmployeeID}.");
+                            Console.WriteLine();
+                            break;
+                        }
+                        else if (selectType == "3")
+                        {
+                            Console.WriteLine("You chose Store Manager.");
+                            Console.WriteLine("Enter employee First Name.");
+                            string firstName = Console.ReadLine();
+                            Console.WriteLine("Enter employee Last Name.");
+                            string lastName = Console.ReadLine();
+                            Console.WriteLine("Set employee's EmployeeId.");
+                            string employeeId = Console.ReadLine();
+                            int employeeIdInt = Convert.ToInt32(employeeId);
+                            var employee = new StoreManager()
+                            {
+                                FirstName = firstName,
+                                LastName = lastName,
+                                EmployeeID = employeeIdInt,
+                                CurrQtrRetailSales = 0,
+                                AnnualRetailSales = 0,
+                            };
+                            var repo = new EmployeeRepository();
+                            repo.AddStoreManager(employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Store Manager ID {employee.EmployeeID}.");
+                            Console.WriteLine();
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You didn't enter 1, 2, or 3.");
+                            break;
+                        }
                     case "4":
                         //Add store or district
                         Console.WriteLine("Test 4");
