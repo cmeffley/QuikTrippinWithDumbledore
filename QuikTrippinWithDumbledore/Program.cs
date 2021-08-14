@@ -230,15 +230,19 @@ namespace QuikTrippinWithDumbledore
                                 var chosenDisrictManger = districtEmployeeRepo.GetDistrictManager(chosenDistrictManagerId);
                                 districtManagerList.Add(chosenDisrictManger);
 
-                                var districtRepo = new DistrictRepository();
-                                var district = new DistrictBase()
+                                var newDistrictRepo = new DistrictRepository();
+                                var newDistrict = new DistrictBase()
                                 {
                                     DistrictName = districtNameInput,
                                     StoreList = districtStoreList,
                                     DistrictManager = districtManagerList
                                 };
-                                Console.WriteLine($"{district.DistrictName}: {district.DistrictManager}");
+                                newDistrictRepo.AddNewDistrict(newDistrict);
+                                Console.WriteLine($"Added new district to database: " +
+                                    $"\n District Name:{newDistrict.DistrictName} " +
+                                    $"\n District Manger: {newDistrict.DistrictManager[0]}");
                                 break;
+
                             case "2": //Add Store
                                 var storeRepo = new StoreRepository();
                                 Console.WriteLine("Create a store ID number, e.g. 001");

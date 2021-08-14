@@ -15,7 +15,7 @@ namespace QuikTrippinWithDumbledore.District
             new DistrictBase
             {
                 DistrictName="North", 
-                DistrictManager= new DistrictManager{FirstName="Chris", LastName="Meffley", EmployeeID=383938, CurrQtrRetailSales=2344.45m, AnnualRetailSales=135000.46m},
+                DistrictManager= new List<DistrictManager>{new DistrictManager {FirstName="Chris", LastName="Meffley", EmployeeID=383938, CurrQtrRetailSales=2344.45m, AnnualRetailSales=135000.46m} },
                 StoreList = new List<StoreBase>
                 {
                     new StoreBase
@@ -45,7 +45,7 @@ namespace QuikTrippinWithDumbledore.District
             new DistrictBase
             {
                 DistrictName="South",
-                DistrictManager= new DistrictManager{FirstName="Matthew", LastName="Gonzales", EmployeeID=458945, CurrQtrRetailSales=3434.45m, AnnualRetailSales=13000.76m},
+                DistrictManager= new List<DistrictManager>{new DistrictManager {FirstName="Matthew", LastName="Gonzales", EmployeeID=458945, CurrQtrRetailSales=3434.45m, AnnualRetailSales=13000.76m} },
                 StoreList = new List<StoreBase>
                 {
                     new StoreBase
@@ -73,7 +73,7 @@ namespace QuikTrippinWithDumbledore.District
             new DistrictBase
             {
                 DistrictName="East",
-                DistrictManager = new DistrictManager{FirstName="Jim", LastName="Conner", EmployeeID=238723, CurrQtrRetailSales=4334.45m, AnnualRetailSales=14000.99m},
+                DistrictManager = new List < DistrictManager > { new DistrictManager { FirstName = "Jim", LastName = "Conner", EmployeeID = 238723, CurrQtrRetailSales = 4334.45m, AnnualRetailSales = 14000.99m } },
                 StoreList = new List<StoreBase>
                 {
                     new StoreBase
@@ -101,7 +101,7 @@ namespace QuikTrippinWithDumbledore.District
             new DistrictBase
             {
                 DistrictName="West",
-                DistrictManager = new DistrictManager{FirstName="Ellie", LastName="Walker", EmployeeID=129812, CurrQtrRetailSales=4234.45m, AnnualRetailSales=135000.55m},
+                DistrictManager = new List <DistrictManager> {new DistrictManager {FirstName="Ellie", LastName="Walker", EmployeeID=129812, CurrQtrRetailSales=4234.45m, AnnualRetailSales=135000.55m} },
                 StoreList = new List<StoreBase>
                 {
                     new StoreBase
