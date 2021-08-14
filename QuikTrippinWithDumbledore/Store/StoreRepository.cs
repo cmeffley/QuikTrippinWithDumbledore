@@ -22,16 +22,16 @@ namespace QuikTrippinWithDumbledore.Store
                 StoreNumber = 001,
                 YearlyGasSales = 3342341.44m,
                 CurrentQuarterGasSales = 122135.24m,
-                StoreManager = new StoreManager()
+                StoreManagerList = new List<StoreManager>()
                 {
-                    FirstName="Ben", LastName="Jarrett", EmployeeID=111111, CurrQtrRetailSales=2234.45m, AnnualRetailSales=74686.33m
+                    new StoreManager{FirstName="Ben", LastName="Jarrett", EmployeeID=111111, CurrQtrRetailSales=2234.45m, AnnualRetailSales=74686.33m }
                 },
 
-                AssistantManager = new AssistantManager()
+                AssistantManagerList = new List<AssistantManager>()
                 {
-                    FirstName="Martin", LastName="Sisk", EmployeeID=11111, CurrQtrRetailSales=1234.45m, AnnualRetailSales=4746.54m
+                    new AssistantManager{FirstName="Martin", LastName="Sisk", EmployeeID=11111, CurrQtrRetailSales=1234.45m, AnnualRetailSales=4746.54m }
                 },
-                AssociateStoreList = new List<Associate>()
+                AssociateList = new List<Associate>()
                 {
                     new Associate{FirstName="Hunter", LastName="Juneau", EmployeeID=1, CurrQtrRetailSales=234.45m, AnnualRetailSales=1746.54m},
                     new Associate{FirstName="Jesse", LastName="Robinson", EmployeeID=2, CurrQtrRetailSales=994.38m, AnnualRetailSales=2746.54m},
@@ -45,16 +45,16 @@ namespace QuikTrippinWithDumbledore.Store
                 StoreNumber = 002,
                 YearlyGasSales = 3342322.42m,
                 CurrentQuarterGasSales = 12235.24m,
-                StoreManager = new StoreManager()
+                StoreManagerList = new List<StoreManager>()
                 {
-                    FirstName="Casey", LastName="Walker", EmployeeID=222222, CurrQtrRetailSales=2934.45m, AnnualRetailSales=75894.55m
+                    new StoreManager{FirstName="Casey", LastName="Walker", EmployeeID=222222, CurrQtrRetailSales=2934.45m, AnnualRetailSales=75894.55m }
                 },
 
-                AssistantManager = new AssistantManager()
+                AssistantManagerList = new List<AssistantManager>()
                 {
-                    FirstName="Gabby", LastName="Tobermann", EmployeeID=22222, CurrQtrRetailSales=1334.45m, AnnualRetailSales=7575.45m
+                    new AssistantManager{FirstName="Gabby", LastName="Tobermann", EmployeeID=22222, CurrQtrRetailSales=1334.45m, AnnualRetailSales=7575.45m }
                 },
-                AssociateStoreList = new List<Associate>()
+                AssociateList = new List<Associate>()
                 {
                     new Associate{FirstName="Lindsey", LastName="Satterfield", EmployeeID=5, CurrQtrRetailSales=234.54m, AnnualRetailSales=2946.54m},
                     new Associate{FirstName="Mitchell", LastName="Crumbley", EmployeeID=6, CurrQtrRetailSales=737.37m, AnnualRetailSales=2246.54m},
@@ -67,16 +67,16 @@ namespace QuikTrippinWithDumbledore.Store
                 StoreNumber = 003,
                 YearlyGasSales = 3342322.42m,
                 CurrentQuarterGasSales = 12235.24m,
-                StoreManager = new StoreManager()
+                StoreManagerList = new List<StoreManager>()
                 {
-                    FirstName="Chie", LastName="Stroud", EmployeeID=333333, CurrQtrRetailSales=2424.45m, AnnualRetailSales=85874.54m
+                    new StoreManager{FirstName="Chie", LastName="Stroud", EmployeeID=333333, CurrQtrRetailSales=2424.45m, AnnualRetailSales=85874.54m }
                 },
 
-                AssistantManager = new AssistantManager()
+                AssistantManagerList = new List<AssistantManager>()
                 {
-                    FirstName="John", LastName="Maple", EmployeeID=33333, CurrQtrRetailSales=1854.45m, AnnualRetailSales=8585.47m
+                    new AssistantManager{FirstName="John", LastName="Maple", EmployeeID=33333, CurrQtrRetailSales=1854.45m, AnnualRetailSales=8585.47m }
                 },
-                AssociateStoreList = new List<Associate>()
+                AssociateList = new List<Associate>()
                 {
                     new Associate{FirstName="Sara", LastName="Schoonover", EmployeeID=10, CurrQtrRetailSales=456.45m, AnnualRetailSales=1946.54m},
                     new Associate{FirstName="Honey-Rae", LastName="Swan", EmployeeID=11, CurrQtrRetailSales=234.55m, AnnualRetailSales=2246.54m},
@@ -89,16 +89,16 @@ namespace QuikTrippinWithDumbledore.Store
                 StoreNumber = 004,
                 YearlyGasSales = 2330419.34m,
                 CurrentQuarterGasSales = 1266635.24m,
-                StoreManager = new StoreManager()
+                StoreManagerList = new List<StoreManager>()
                 {
-                    FirstName="Dani", LastName="Crosby", EmployeeID=444444, CurrQtrRetailSales=2264.45m, AnnualRetailSales=83746.34m
+                    new StoreManager{FirstName="Dani", LastName="Crosby", EmployeeID=444444, CurrQtrRetailSales=2264.45m, AnnualRetailSales=83746.34m }
                 },
 
-                AssistantManager = new AssistantManager()
+                AssistantManagerList = new List<AssistantManager>()
                 {
-                    FirstName="Holly", LastName="Parsons", EmployeeID=44444, CurrQtrRetailSales=1454.45m, AnnualRetailSales=9898.45m
+                    new AssistantManager{FirstName="Holly", LastName="Parsons", EmployeeID=44444, CurrQtrRetailSales=1454.45m, AnnualRetailSales=9898.45m }
                 },
-                AssociateStoreList = new List<Associate>()
+                AssociateList = new List<Associate>()
                 {
                     new Associate{FirstName="Lindsey", LastName="Satterfield", EmployeeID=5, CurrQtrRetailSales=234.54m, AnnualRetailSales=2946.54m},
                     new Associate{FirstName="Mitchell", LastName="Crumbley", EmployeeID=6, CurrQtrRetailSales=737.37m, AnnualRetailSales=2246.54m},
@@ -137,7 +137,19 @@ namespace QuikTrippinWithDumbledore.Store
         {
             var repo = new StoreRepository();
             var store = repo.GetSingleStore(storeNumber);
-            store.AssociateStoreList.Add(associate);
+            store.AssociateList.Add(associate);
+        }
+        public void AddAssistantManagerToStore(int storeNumber, AssistantManager assistantManager)
+        {
+            var repo = new StoreRepository();
+            var store = repo.GetSingleStore(storeNumber);
+            store.AssistantManagerList.Add(assistantManager);
+        }
+        public void AddStoreManagerToStore(int storeNumber, StoreManager storeManager)
+        {
+            var repo = new StoreRepository();
+            var store = repo.GetSingleStore(storeNumber);
+            store.StoreManagerList.Add(storeManager);
         }
 
        

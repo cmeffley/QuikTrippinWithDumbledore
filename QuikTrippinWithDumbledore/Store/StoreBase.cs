@@ -14,9 +14,9 @@ namespace QuikTrippinWithDumbledore.Store
         public decimal YearlyGasSales { get; set; }
         public decimal CurrentQuarterGasSales { get; set; }
         public DistrictBase District { get; set; }
-        public StoreManager StoreManager { get; set; }
-        public AssistantManager AssistantManager { get; set; }
-        public List<Associate> AssociateStoreList { get; set; }
+        public List<StoreManager> StoreManagerList { get; set; }
+        public List<AssistantManager> AssistantManagerList { get; set; }
+        public List<Associate> AssociateList { get; set; }
         //do we need to add district? I added it Friday at 4:15
 
         public StoreBase
@@ -25,8 +25,8 @@ namespace QuikTrippinWithDumbledore.Store
                 decimal yearlyGasSales,
                 decimal currentQuarterGasSales,
                 DistrictBase district,
-                StoreManager storeManager,
-                AssistantManager assistantManager,
+                List<StoreManager> storeManager,
+                List<AssistantManager> assistantManager,
                 List<Associate> associates
             )
         {
@@ -34,9 +34,9 @@ namespace QuikTrippinWithDumbledore.Store
             YearlyGasSales = yearlyGasSales;
             CurrentQuarterGasSales = currentQuarterGasSales;
             District = district;
-            StoreManager = storeManager;
-            AssistantManager = assistantManager;
-            AssociateStoreList = associates;
+            StoreManagerList = storeManager;
+            AssistantManagerList = assistantManager;
+            AssociateList = associates;
         }
 
         public StoreBase()
