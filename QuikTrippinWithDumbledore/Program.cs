@@ -428,7 +428,7 @@ namespace QuikTrippinWithDumbledore
                         }
                     case "4":
                         //Add a Store/District
-                        var storeSubMenu = "1) Add a District\n2) Add a Store\n3) Main Menu\n4) Return to Main Menu";
+                        var storeSubMenu = "1) Add a District\n2) Add a Store";
                         Console.WriteLine(storeSubMenu);
                         var UserInputDistrictOrStore = Console.ReadLine();
                         switch (UserInputDistrictOrStore)
@@ -454,7 +454,6 @@ namespace QuikTrippinWithDumbledore
                                     var chooseStoreNumber = eachStore.StoreNumber;
                                     Console.WriteLine($"Store Number: { chooseStoreNumber}");
                                 }
-                                Console.WriteLine("test");
 
                                 //set up the stuff that needs to be shared across iterations first before loop
                                 var districtStoreList = new List<StoreBase>();
@@ -499,7 +498,7 @@ namespace QuikTrippinWithDumbledore
                                 var storeRepo = new StoreRepository();
                                 Console.WriteLine("Create a store ID number, e.g. 001");
                                 var storeNumberInput = Convert.ToInt32(Console.ReadLine());
-                                if (StoreRepository.DoesStoreIdAlreadyExist(storeNumberInput) == false)
+                                if (StoreRepository.DoesStoreIdAlreadyExist(storeNumberInput) == true)
                                 {
                                     Console.WriteLine($"{storeNumberInput} already exists... please Enter to start over");
                                     Console.ReadKey();
