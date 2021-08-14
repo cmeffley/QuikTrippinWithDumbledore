@@ -39,9 +39,23 @@ namespace QuikTrippinWithDumbledore
                         Console.WriteLine("Test 3");
                         break;
                     case "4":
-                        //Add store or district
-                        Console.WriteLine("Test 4");
+                        //Add a Store/District
+                        Console.WriteLine("1) Add a District\n2)Add a Store\n3) Main Menu");
+                        var UserInputDistrictOrStore = Console.ReadLine();
+                        switch (UserInputDistrictOrStore)
+                        {
+                            case "1": //Add District
+                                Console.WriteLine("Add");
+                                break;
+                            case "2": //Add Store
+
+                                break;
+                            default:
+                                DisplayMenu();
+                                break;
+                        }
                         break;
+                        ////////////////////////
                     default:
                         Console.WriteLine("Goodbye");
                         loopControl = false;

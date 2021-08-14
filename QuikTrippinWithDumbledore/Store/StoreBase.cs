@@ -41,7 +41,9 @@ namespace QuikTrippinWithDumbledore.Store
 
         public StoreBase()
         {
-
+            
         }
+
+
     }
 }
