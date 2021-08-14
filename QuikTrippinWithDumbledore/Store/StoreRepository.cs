@@ -152,23 +152,13 @@ namespace QuikTrippinWithDumbledore.Store
             store.StoreManagerList.Add(storeManager);
         }
 
-        public bool DoesStoreIdAlreadyExist(int storeNumber)
+        public static bool DoesStoreIdAlreadyExist(int storeNum)
         {
             var repo = new StoreRepository();
             var stores = repo.GetStores();
-
-            return stores.Any(store => store.StoreNumber == storeNumber); //using Linq version from Nathan's suggestion
-
-            //foreach loop was my first idea & works, but I like how clean using .Any() is 
-            //foreach (var store in stores)
-            //{
-            //    if (store.StoreNumber == storeNumber)
-            //    {
-            //        return true;
-            //    }
-            //}
-            //return false;
+            return stores.Any(store => store.StoreNumber == storeNum);
         }
+
     }
 
 }

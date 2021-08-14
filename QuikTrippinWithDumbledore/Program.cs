@@ -22,6 +22,13 @@ namespace QuikTrippinWithDumbledore
                 Console.WriteLine("Type the number of the desired option:");
             }
 
+            static void DistrictSalesMenu()
+            {
+                Console.WriteLine("1) Update Gas Sales");
+                Console.WriteLine("2) Update Employee Retail Sales");
+                Console.WriteLine("3) Exit");
+            }
+
             var loopControl = true;
             while (loopControl)
             {
@@ -29,9 +36,247 @@ namespace QuikTrippinWithDumbledore
                 var userInput = Console.ReadLine();
                 switch (userInput)
                 {
-                    case "1":
-                        //Enter District Sales
-                        
+                    case "1":    
+                        var loop = true;
+                        DistrictSalesMenu();
+                        var salesInput = Console.ReadLine();
+                        while (loop)
+                        {
+                            switch (salesInput)
+                            {
+                                case "1":
+                                    Console.WriteLine("1) Current Quarter Sales\n2) Yearly Gas Sales");
+                                    var whichSale = Console.ReadLine();
+                                    if (whichSale == "1")
+                                    {
+                                        Console.WriteLine("Enter Store Number");
+                                        int storeNumber = Convert.ToInt32(Console.ReadLine());
+                                        if (StoreRepository.DoesStoreIdAlreadyExist(storeNumber) == false)
+                                        {
+                                            Console.WriteLine("That Store does not exist");
+                                            break;
+                                        }
+                                        Console.WriteLine("Enter Additional Quarterly Gas Sales");
+                                        decimal gasSale = Convert.ToDecimal(Console.ReadLine());
+                                        StoreSales.AddToQuarterlyGasSales(storeNumber, gasSale);
+                                        Console.WriteLine();
+                                        Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more store sales");
+                                        var enter = Console.ReadLine();
+                                        if (enter.Equals(""))
+                                            loop = false;
+                                        else
+                                            break;
+                                    }
+                                    else if (whichSale == "2")
+                                    {
+                                        Console.WriteLine("Enter Store Number");
+                                        int storeNumber = Convert.ToInt32(Console.ReadLine());
+                                        if (StoreRepository.DoesStoreIdAlreadyExist(storeNumber) == false)
+                                        {
+                                            Console.WriteLine("That Store does not exist");
+                                            break;
+                                        }
+                                        Console.WriteLine("Enter Additional Yearly Gas Sales");
+                                        decimal gasSale = Convert.ToDecimal(Console.ReadLine());
+                                        StoreSales.AddToYearlyGasSales(storeNumber, gasSale);
+                                        Console.WriteLine();
+                                        Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more store sales");
+                                        var enter = Console.ReadLine();
+                                        if (enter.Equals(""))
+                                            loop = false;
+                                        else
+                                            break;
+                                    }
+                                    break;
+                                case "2":
+                                    Console.WriteLine("Enter Number:\n1) District Manager\n2) Store Manager\n3) Assistant Manager\n4) Associate\n5) Exit");
+                                    var chooseSale = Console.ReadLine();
+                                    if(chooseSale == "1")
+                                    {
+                                        Console.WriteLine("District Manager:\n1) Current Quarter Sales\n2) Yearly Sales");
+                                        var distManSale = Console.ReadLine();
+                                        if (distManSale == "1")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesDistricManIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter District Manager's additional Quarterly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateDistrictManagerQuartSales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                        else if (distManSale == "2")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesDistricManIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter District Manager's additional Yearly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateDistrictManagerYearlySales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                    }
+                                    else if(chooseSale == "2")
+                                    {
+                                        Console.WriteLine("Store Manager:\n1) Current Quarter Sales\n2) Yearly Sales");
+                                        var storeManSale = Console.ReadLine();
+                                        if (storeManSale == "1")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesStoreManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Store Manager's additional Quarterly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateStoreManagerQuartSales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                        else if (storeManSale == "2")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesStoreManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Store Manager's additional Yearly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateStoreManagerYearlySales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                    }
+                                    else if(chooseSale == "3")
+                                    {
+                                        Console.WriteLine("Assistant Manager:\n1) Current Quarter Sales\n2) Yearly Sales");
+                                        var storeAssisSale = Console.ReadLine();
+                                        if (storeAssisSale == "1")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssisManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Assistant Manager's additional Quarterly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateAssisManagerQuartSales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                        else if (storeAssisSale == "2")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssisManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Assistant Manager's additional Yearly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateAssisManagerYearlySales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                    }
+                                    else if(chooseSale == "4")
+                                    {
+                                        Console.WriteLine("Associate:\n1) Current Quarter Sales\n2) Yearly Sales");
+                                        var assocSale = Console.ReadLine();
+                                        if (assocSale == "1")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssociateIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Associate's additional Quarterly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateAssociateYearlySales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales ");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                        else if(assocSale == "2")
+                                        {
+                                            Console.WriteLine("Enter Employee ID");
+                                            var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssociateIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
+                                            Console.WriteLine("Enter Associate's additional Yearly Sales");
+                                            decimal retailSales = Convert.ToDecimal(Console.ReadLine());
+                                            StoreSales.UpdateAssociateYearlySales(employeeID, retailSales);
+                                            Console.WriteLine();
+                                            Console.WriteLine("Press Enter to Return to Main Menu or 1 to add more employee sales ");
+                                            var enter = Console.ReadLine();
+                                            if (enter.Equals(""))
+                                                loop = false;
+                                            else
+                                                break;
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    loop = false;
+                                    break;
+                            }
+                        }
                         break;
                     case "2":
                         //Generate District Report
