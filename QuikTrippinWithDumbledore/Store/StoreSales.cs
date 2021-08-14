@@ -1,4 +1,5 @@
 ﻿
+using QuikTrippinWithDumbledore.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,40 +10,115 @@ namespace QuikTrippinWithDumbledore.Store
 {
     class StoreSales : StoreBase
     {
-        //Quarterly sales:
-        //Gas Current Quarter & 
-        //Retail
-        // use methods to create claculations for quarterly and annual sales 
-        //public double YearlyGasSales { get; set; }
-        //public double CurrentQuarterGasSales { get; set; }
 
-        public static void AddToYearlyGasSales(int storeNumber, decimal newSale)
+        //STORE SALES
+        public static void AddToYearlyGasSales(int storeNum, decimal newSale)
         {
             var repo = new StoreRepository();
-            var store = repo.GetSingleStore(storeNumber);
-            var storeGasSales = store.YearlyGasSales;
-            var newTotal = Decimal.Add(storeGasSales, newSale);
-            Console.WriteLine($"Store #{storeNumber}'s new Yearly gas sales are ${newTotal}");  
+            var store = repo.GetSingleStore(storeNum);
+            if(storeNum != store.StoreNumber)
+            {
+                Console.WriteLine("This store does not exist, please try again");
+            }
+            var storeYearlyGasSales = store.YearlyGasSales;
+            var newTotal = Decimal.Add(storeYearlyGasSales, newSale);
+            Console.WriteLine($"Store #{storeNum}'s new Yearly gas sales are ${newTotal}");  
         }
         public static void AddToQuarterlyGasSales(int storeNumber, decimal newSale)
         {
             var repo = new StoreRepository();
             var store = repo.GetSingleStore(storeNumber);
-            var storeGasSales = store.CurrentQuarterGasSales;
-            var newTotal = Decimal.Add(storeGasSales, newSale);
-            Console.WriteLine($"Store #{storeNumber}'s new Yearly gas sales are ${newTotal}");
+            var storeQuarterlyGasSales = store.CurrentQuarterGasSales;
+            var newTotal = Decimal.Add(storeQuarterlyGasSales, newSale);
+            Console.WriteLine($"Store #{storeNumber}'s new current quarter gas sales are ${newTotal}");
         }
 
-        //public StoreBase GetSingleStore(int specificStore)
-        //{
-        //    return _stores.First(store => store.StoreNumber == specificStore);
-        //}
+        //ASSOCIATE
+        public static void UpdateAssociateQuarterSales(int associateID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var associate = repo.GetAssociate(associateID);
+            var associateQuarterSales = associate.CurrQtrRetailSales;
+            var newTotal = Decimal.Add(associateQuarterSales, moreSales);
+            Console.WriteLine($"{associate.FirstName} {associate.LastName}'s new Quarter sales total is {newTotal}");
+        }   
+        public static void UpdateAssociateYearlySales(int associateID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var associate = repo.GetAssociate(associateID);
+            var associateYearlySales = associate.AnnualRetailSales;
+            var newTotal = Decimal.Add(associateYearlySales, moreSales);
+            Console.WriteLine($"{associate.FirstName} {associate.LastName}'s new Yearly sales total is {newTotal}");
+        }   
 
-        //public void AddAssociateToStore(int storeNumber, Associate associate)
-        //{
-        //    var repo = new StoreRepository();
-        //    var store = repo.GetSingleStore(storeNumber);
-        //    store.AssociateStoreList.Add(associate);
-        //}
+        //DISTRICT MANAGER
+        public static void UpdateDistrictManagerQuartSales(int distManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var distManager = repo.GetDistrictManager(distManagerID);
+            var distManagerQuartSales = distManager.CurrQtrRetailSales;
+            var newTotal = Decimal.Add(distManagerQuartSales, moreSales);
+            Console.WriteLine($"{distManager.FirstName} {distManager.LastName}'s new Quarter sales total is {newTotal}");
+        } 
+        public static void UpdateDistrictManagerYearlySales(int distManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var distManager = repo.GetDistrictManager(distManagerID);
+            var distManagerYearSales = distManager.AnnualRetailSales;
+            var newTotal = Decimal.Add(distManagerYearSales, moreSales);
+            Console.WriteLine($"{distManager.FirstName} {distManager.LastName}'s new Yearly sales total is {newTotal}");
+        }
+
+        //STORE MANAGER
+        public static void UpdateStoreManagerQuartSales(int storeManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var storeManager = repo.GetStoreManager(storeManagerID);
+            var storeManagerQuartSales = storeManager.CurrQtrRetailSales;
+            var newTotal = Decimal.Add(storeManagerQuartSales, moreSales);
+            Console.WriteLine($"{storeManager.FirstName} {storeManager.LastName}'s new Quarter sales total is {newTotal}");
+        }    
+        public static void UpdateStoreManagerYearlySales(int storeManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var storeManager = repo.GetStoreManager(storeManagerID);
+            var storeManagerYearSales = storeManager.AnnualRetailSales;
+            var newTotal = Decimal.Add(storeManagerYearSales, moreSales);
+            Console.WriteLine($"{storeManager.FirstName} {storeManager.LastName}'s new Yearly sales total is {newTotal}");
+        }
+
+        //ASSISTANT MANAGER
+        public static void UpdateAssisManagerQuartSales(int assisManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var assisManager = repo.GetAssistant(assisManagerID);
+            var assisManagerQuartSales = assisManager.CurrQtrRetailSales;
+            var newTotal = Decimal.Add(assisManagerQuartSales, moreSales);
+            Console.WriteLine($"{assisManager.FirstName} {assisManager.LastName}'s new Quarter sales total is {newTotal}");
+        }     
+        public static void UpdateAssisManagerYearlySales(int assisManagerID, decimal moreSales)
+        {
+            var repo = new EmployeeRepository();
+            var assisManager = repo.GetAssistant(assisManagerID);
+            var assisManagerearlySales = assisManager.AnnualRetailSales;
+            var newTotal = Decimal.Add(assisManagerearlySales, moreSales);
+            Console.WriteLine($"{assisManager.FirstName} {assisManager.LastName}'s new Yearly sales total is {newTotal}");
+        }
+
+        //DO STORE AND EMPLOYEE IDs EXIST
+        public static bool DoesStoreIdAlreadyExist(int storeNum)
+        {
+            var repo = new StoreRepository();
+            var stores = repo.GetStores();
+            return stores.Any(store => store.StoreNumber == storeNum);
+        }
+
+        public static bool DoesAssociateIdExist(int assocId)
+        {
+            var repo = new EmployeeRepository();
+            var associates = repo.GetAllAssociates();
+            return associates.Any(associate => associate.EmployeeID == assocId);
+        }   
+     
     }
 }
