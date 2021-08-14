@@ -1,4 +1,5 @@
-﻿using QuikTrippinWithDumbledore.Employee;
+﻿using QuikTrippinWithDumbledore.District;
+using QuikTrippinWithDumbledore.Employee;
 using QuikTrippinWithDumbledore.Store;
 using System;
 using System.Collections.Generic;
@@ -239,7 +240,54 @@ namespace QuikTrippinWithDumbledore
                         break;
                     case "2":
                         //Generate District Report
-                        Console.WriteLine("Test 2");
+                        Console.WriteLine("District Sales Report. Please enter District Name:");
+                        var districtName = Console.ReadLine();
+                        var districtRepo = new DistrictRepository();
+                        var district = districtRepo.GetDistrict(districtName); 
+                        Console.WriteLine("District Sales Report");
+                        Console.WriteLine();
+                        foreach (var store in district.StoreList)
+                        {
+                            var retailYearly = 0m;
+                            var retailCurrQtr = 0m;
+                            Console.WriteLine($"Store #{store.StoreNumber}");
+                            Console.WriteLine("------------------------------------------");
+                            Console.WriteLine("1. Store Manager");
+                            foreach (var storeManager in store.StoreManagerList)
+                            {
+                                retailYearly += storeManager.AnnualRetailSales;
+                                retailCurrQtr += storeManager.CurrQtrRetailSales;
+                                Console.WriteLine($"   {storeManager.FirstName} {storeManager.LastName}:");
+                                Console.WriteLine($"     Current Qtr Retail Sales: {string.Format("{0:C}", storeManager.CurrQtrRetailSales)}");
+                                Console.WriteLine($"     Annual Retail Sales: {string.Format("{0:C}", storeManager.AnnualRetailSales)}");
+                                Console.WriteLine();
+                            }
+                            Console.WriteLine("2. Assistant Manager");
+                            foreach (var assistantManager in store.AssistantManagerList)
+                            {
+                                retailYearly += assistantManager.AnnualRetailSales;
+                                retailCurrQtr += assistantManager.CurrQtrRetailSales;
+                                Console.WriteLine($"   {assistantManager.FirstName} {assistantManager.LastName}:");
+                                Console.WriteLine($"     Current Qtr Retail Sales: {string.Format("{0:C}", assistantManager.CurrQtrRetailSales)}");
+                                Console.WriteLine($"     Annual Retail Sales: {string.Format("{0:C}", assistantManager.AnnualRetailSales)}");
+                                Console.WriteLine();
+                            }
+                            Console.WriteLine("3. Associate");
+                            foreach (var associate in store.AssociateList)
+                            {
+                                retailYearly += associate.AnnualRetailSales;
+                                retailCurrQtr += associate.CurrQtrRetailSales;
+                                Console.WriteLine($"   {associate.FirstName} {associate.LastName}:");
+                                Console.WriteLine($"     Current Qtr Retail Sales: {string.Format("{0:C}", associate.CurrQtrRetailSales)}");
+                                Console.WriteLine($"     Annual Retail Sales: {string.Format("{0:C}", associate.AnnualRetailSales)}");
+                                Console.WriteLine();
+                            }
+                            Console.WriteLine($"Gas Yearly: {string.Format("{0:C}", store.YearlyGasSales)}");
+                            Console.WriteLine($"Gas Current Quarter: {string.Format("{0:C}", store.CurrentQuarterGasSales)}");
+                            Console.WriteLine($"Retail Yearly: {string.Format("{0:C}", retailYearly)}");
+                            Console.WriteLine($"Retail Current Quarter: {string.Format("{0:C}", retailCurrQtr)}");
+                            Console.WriteLine();
+                        }
                         break;
                     case "3":
                         //Add New Employee
