@@ -139,6 +139,8 @@ namespace QuikTrippinWithDumbledore.Store
             var store = repo.GetSingleStore(storeNumber);
             store.AssociateStoreList.Add(associate);
         }
+
+       
     }
 
 }

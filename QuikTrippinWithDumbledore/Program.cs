@@ -49,16 +49,19 @@ namespace QuikTrippinWithDumbledore
                                 case "1":
                                     Console.WriteLine("Enter Store Number");
                                     int storeNumber = Convert.ToInt32(Console.ReadLine());
-                                    var store = StoreRepository.GetSingleStore(storeNumber);
-                                    Console.WriteLine($@"Store #{storeNumber} \n{store.CurrentQuarterGasSales}");
-                                    //Console.WriteLine($"{store.CurrentQuarterGasSales}");
-                                    Console.WriteLine();
+                                    Console.WriteLine("Enter Additional Yearly Gas Sales");
+                                    decimal gasSale = Convert.ToDecimal(Console.ReadLine());
+                                    StoreSales.AddToYearlyGasSales(storeNumber, gasSale);
+                                    //var storeRepo = new StoreRepository();
+                                    //var store = storeRepo.GetSingleStore(storeNumber);
+                                    //Console.WriteLine($"Store #{storeNumber} \n{store.CurrentQuarterGasSales}");
+                                    
+                                    //Console.WriteLine();
                                     break;
                                 case "2":
                                     Console.WriteLine("Enter Employee Position");
                                     int employeePosition = Convert.ToInt32(Console.ReadLine());
-                                    
-                                    
+ 
                                     break;
                                 default:
                                     loop = false;
