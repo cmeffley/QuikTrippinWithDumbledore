@@ -104,21 +104,6 @@ namespace QuikTrippinWithDumbledore.Store
             var newTotal = Decimal.Add(assisManagerearlySales, moreSales);
             Console.WriteLine($"{assisManager.FirstName} {assisManager.LastName}'s new Yearly sales total is {newTotal}");
         }
-
-        //DO STORE AND EMPLOYEE IDs EXIST
-        public static bool DoesStoreIdAlreadyExist(int storeNum)
-        {
-            var repo = new StoreRepository();
-            var stores = repo.GetStores();
-            return stores.Any(store => store.StoreNumber == storeNum);
-        }
-
-        public static bool DoesAssociateIdExist(int assocId)
-        {
-            var repo = new EmployeeRepository();
-            var associates = repo.GetAllAssociates();
-            return associates.Any(associate => associate.EmployeeID == assocId);
-        }   
      
     }
 }

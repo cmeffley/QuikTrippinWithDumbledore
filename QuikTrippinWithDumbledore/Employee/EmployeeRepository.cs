@@ -61,6 +61,12 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _associates;
         }
+        public static bool DoesAssociateIdExist(int assocId)
+        {
+            var repo = new EmployeeRepository();
+            var associates = repo.GetAllAssociates();
+            return associates.Any(associate => associate.EmployeeID == assocId);
+        }
 
         public void RemoveAssociate(Associate associate)
         {
@@ -80,6 +86,12 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _assistantManagers;
         }
+        public static bool DoesAssisManagerIdExist(int assisId)
+        {
+            var repo = new EmployeeRepository();
+            var assisManager = repo.GetAllAssisManagers();
+            return assisManager.Any(assistant => assistant.EmployeeID == assisId);
+        }
         public void RemoveAssistantManager(AssistantManager assistant)
         {
             _assistantManagers.Remove(assistant);
@@ -98,6 +110,13 @@ namespace QuikTrippinWithDumbledore.Employee
         {
             return _storeManagers;
         }
+        public static bool DoesStoreManagerIdExist(int storeManagerId)
+        {
+            var repo = new EmployeeRepository();
+            var storeManager = repo.GetAllStoreManagers();
+            return storeManager.Any(manager => manager.EmployeeID == storeManagerId);
+        }
+
         public void RemoveStoreManager(StoreManager storeManager)
         {
             _storeManagers.Remove(storeManager);

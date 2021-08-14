@@ -51,7 +51,7 @@ namespace QuikTrippinWithDumbledore
                                     {
                                         Console.WriteLine("Enter Store Number");
                                         int storeNumber = Convert.ToInt32(Console.ReadLine());
-                                        if (StoreSales.DoesStoreIdAlreadyExist(storeNumber) == false)
+                                        if (StoreRepository.DoesStoreIdAlreadyExist(storeNumber) == false)
                                         {
                                             Console.WriteLine("That Store does not exist");
                                             break;
@@ -71,7 +71,7 @@ namespace QuikTrippinWithDumbledore
                                     {
                                         Console.WriteLine("Enter Store Number");
                                         int storeNumber = Convert.ToInt32(Console.ReadLine());
-                                        if (StoreSales.DoesStoreIdAlreadyExist(storeNumber) == false)
+                                        if (StoreRepository.DoesStoreIdAlreadyExist(storeNumber) == false)
                                         {
                                             Console.WriteLine("That Store does not exist");
                                             break;
@@ -99,6 +99,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesDistricManIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter District Manager's additional Quarterly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateDistrictManagerQuartSales(employeeID, retailSales);
@@ -114,6 +119,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesDistricManIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter District Manager's additional Yearly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateDistrictManagerYearlySales(employeeID, retailSales);
@@ -134,6 +144,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesStoreManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Store Manager's additional Quarterly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateStoreManagerQuartSales(employeeID, retailSales);
@@ -149,6 +164,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesStoreManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Store Manager's additional Yearly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateStoreManagerYearlySales(employeeID, retailSales);
@@ -169,6 +189,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssisManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Assistant Manager's additional Quarterly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateAssisManagerQuartSales(employeeID, retailSales);
@@ -184,6 +209,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssisManagerIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Assistant Manager's additional Yearly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateAssisManagerYearlySales(employeeID, retailSales);
@@ -204,6 +234,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssociateIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Associate's additional Quarterly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateAssociateYearlySales(employeeID, retailSales);
@@ -219,6 +254,11 @@ namespace QuikTrippinWithDumbledore
                                         {
                                             Console.WriteLine("Enter Employee ID");
                                             var employeeID = Convert.ToInt32(Console.ReadLine());
+                                            if (EmployeeRepository.DoesAssociateIdExist(employeeID) == false)
+                                            {
+                                                Console.WriteLine("This Employee does not exist");
+                                                break;
+                                            }
                                             Console.WriteLine("Enter Associate's additional Yearly Sales");
                                             decimal retailSales = Convert.ToDecimal(Console.ReadLine());
                                             StoreSales.UpdateAssociateYearlySales(employeeID, retailSales);
