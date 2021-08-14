@@ -1,4 +1,5 @@
 ﻿using QuikTrippinWithDumbledore.Employee;
+using QuikTrippinWithDumbledore.Store;
 using System;
 using System.Collections.Generic;
 
@@ -60,7 +61,12 @@ namespace QuikTrippinWithDumbledore
                             };
                             var repo = new EmployeeRepository();
                             repo.AddAssociate(employee);
-                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Associate ID {employee.EmployeeID}.");
+                            Console.WriteLine("Select Store# to assign Associate to. (Enter number)");
+                            var storeNum = Console.ReadLine();
+                            int storeNumInt = Convert.ToInt32(storeNum);
+                            var storeRepo = new StoreRepository();
+                            storeRepo.AddAssociateToStore(storeNumInt, employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Associate ID {employee.EmployeeID} to Store#{storeNumInt}.");
                             Console.WriteLine();
                             break;
                         }
@@ -84,7 +90,12 @@ namespace QuikTrippinWithDumbledore
                             };
                             var repo = new EmployeeRepository();
                             repo.AddAssistantManager(employee);
-                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Assistant Manager ID {employee.EmployeeID}.");
+                            Console.WriteLine("Select Store# to assign Assistant Manager to. (Enter number)");
+                            var storeNum = Console.ReadLine();
+                            int storeNumInt = Convert.ToInt32(storeNum);
+                            var storeRepo = new StoreRepository();
+                            storeRepo.AddAssistantManagerToStore(storeNumInt, employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Assistant Manager ID {employee.EmployeeID} to Store#{storeNumInt}.");
                             Console.WriteLine();
                             break;
                         }
@@ -108,7 +119,12 @@ namespace QuikTrippinWithDumbledore
                             };
                             var repo = new EmployeeRepository();
                             repo.AddStoreManager(employee);
-                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Store Manager ID {employee.EmployeeID}.");
+                            Console.WriteLine("Select Store# to assign Store Manager to. (Enter number)");
+                            var storeNum = Console.ReadLine();
+                            int storeNumInt = Convert.ToInt32(storeNum);
+                            var storeRepo = new StoreRepository();
+                            storeRepo.AddStoreManagerToStore(storeNumInt, employee);
+                            Console.WriteLine($"You added {employee.FirstName} {employee.LastName} with Store Manager ID {employee.EmployeeID} to Store#{storeNumInt}.");
                             Console.WriteLine();
                             break;
                         }
