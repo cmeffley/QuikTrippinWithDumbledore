@@ -1,5 +1,4 @@
-﻿using QuikTrippinWithDumbledore.Store;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +10,8 @@ namespace QuikTrippinWithDumbledore.District
 {
     class DistrictBase
     {
+        public string DistrictName { get; set; }
         public List<StoreBase> StoreList { get; set; }
         public DistrictManager DistrictManager { get; set; }
-        public string DistrictName { get; set; }
     }
 }
