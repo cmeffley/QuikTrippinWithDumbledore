@@ -514,7 +514,11 @@ namespace QuikTrippinWithDumbledore
                                 {
                                     StoreNumber = storeNumberInput,
                                     YearlyGasSales = storeYearlyGasSales,
-                                    CurrentQuarterGasSales = storeCurrentQtrGasSales
+                                    CurrentQuarterGasSales = storeCurrentQtrGasSales,
+                                    District = new DistrictBase(),
+                                    StoreManagerList = new List<StoreManager>(),
+                                    AssistantManagerList = new List<AssistantManager>(),
+                                    AssociateList = new List<Associate>()
                                 };
                                 storeRepo.Add(store);
                                 Console.WriteLine($"You added Store #{storeNumberInput}.");
