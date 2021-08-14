@@ -152,17 +152,19 @@ namespace QuikTrippinWithDumbledore.Store
             store.StoreManagerList.Add(storeManager);
         }
 
-        public void DoesStoreAlreadyExist(int storeNumber)
+        public bool DoesStoreIdAlreadyExist(int storeNumber)
         {
             var repo = new StoreRepository();
             var stores = repo.GetStores();
+
             foreach (var store in stores)
             {
                 if (store.StoreNumber == storeNumber)
                 {
-                    Console.WriteLine($"{storeNumber} already exists.  Please try a new number.");
+                    return true; //
                 }
             }
+            return false;
             
         }
     }

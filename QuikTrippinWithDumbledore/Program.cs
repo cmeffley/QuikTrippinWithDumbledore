@@ -146,8 +146,11 @@ namespace QuikTrippinWithDumbledore
                                 var storeRepo = new StoreRepository();
 
                                 Console.WriteLine("Create the store's ID number, e.g. 001");
-                                var storeNumber = Convert.ToInt32(Console.ReadLine());
-                                storeRepo.DoesStoreAlreadyExist(storeNumber);
+                                var storeNumberInput = Convert.ToInt32(Console.ReadLine());
+                                if (storeRepo.DoesStoreIdAlreadyExist(storeNumberInput))
+                                {
+
+                                }
 
                                 Console.WriteLine("Enter Yearly Gas Sales");
                                 var storeYearlyGasSales = Convert.ToInt32(Console.ReadLine());
@@ -156,7 +159,7 @@ namespace QuikTrippinWithDumbledore
 
                                 var store = new StoreBase()
                                 {
-                                    StoreNumber = storeNumber,
+                                    StoreNumber = storeNumberInput,
                                     YearlyGasSales = storeYearlyGasSales,
                                     CurrentQuarterGasSales = storeCurrentQtrGasSales
                                 };
