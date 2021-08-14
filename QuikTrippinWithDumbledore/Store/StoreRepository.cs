@@ -9,7 +9,8 @@ namespace QuikTrippinWithDumbledore.Store
 {
     class StoreRepository
     {
-        static List<StoreBase> _stores = new List<StoreBase>
+
+        static List<StoreBase> _stores = new List<StoreBase>()
         {
             new StoreBase{StoreNumber = 001, YearlyGasSales = 3342341.44m, CurrentQuarterGasSales = 122135.24m},
             new StoreBase{StoreNumber = 002, YearlyGasSales = 3342322.44m, CurrentQuarterGasSales = 12235.24m},
@@ -34,11 +35,12 @@ namespace QuikTrippinWithDumbledore.Store
             _stores.Remove(storeToRemove);
         }
 
-        public static StoreBase GetSingleStoreNumber(int specificStore)
+        public static StoreBase GetSingleStore(int specificStore)
         {
             return _stores.First(store => store.StoreNumber == specificStore);
         }
 
+      
     }
 
 }

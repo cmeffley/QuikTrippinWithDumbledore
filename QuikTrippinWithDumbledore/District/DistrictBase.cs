@@ -14,5 +14,10 @@ namespace QuikTrippinWithDumbledore.District
         public List<StoreBase> StoreList { get; set; }
         public DistrictManager DistrictManager { get; set; }
         public string DistrictName { get; set; }
+
+        //public static StoreBase GetSingleStoreNumber(int specificStore)
+        //{
+        //    return StoreList.First(store => store.StoreNumber == specificStore);
+        //}
     }
 }

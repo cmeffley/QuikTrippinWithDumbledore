@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuikTrippinWithDumbledore.Employee;
+using QuikTrippinWithDumbledore.Store;
+using System;
 using System.Collections.Generic;
 
 namespace QuikTrippinWithDumbledore
@@ -19,6 +21,15 @@ namespace QuikTrippinWithDumbledore
                 Console.WriteLine("Type the number of the desired option:");
             }
 
+            static void DistrictSalesMenu()
+            {
+                Console.WriteLine("1) Update Gas Sales");
+                Console.WriteLine("2) Update Retail Sales");
+                Console.WriteLine("3) Exit");
+            }
+
+            
+
             var loopControl = true;
             while (loopControl)
             {
@@ -27,8 +38,33 @@ namespace QuikTrippinWithDumbledore
                 switch (userInput)
                 {
                     case "1":
-                        //Enter District Sales
                         
+                        var loop = true;
+                        DistrictSalesMenu();
+                        var salesInput = Console.ReadLine();
+                        while (loop)
+                        {
+                            switch (salesInput)
+                            {
+                                case "1":
+                                    Console.WriteLine("Enter Store Number");
+                                    int storeNumber = Convert.ToInt32(Console.ReadLine());
+                                    var store = StoreRepository.GetSingleStore(storeNumber);
+                                    Console.WriteLine($@"Store #{storeNumber} \n{store.CurrentQuarterGasSales}");
+                                    //Console.WriteLine($"{store.CurrentQuarterGasSales}");
+                                    Console.WriteLine();
+                                    break;
+                                case "2":
+                                    Console.WriteLine("Enter Employee Position");
+                                    int employeePosition = Convert.ToInt32(Console.ReadLine());
+                                    
+                                    
+                                    break;
+                                default:
+                                    loop = false;
+                                    break;
+                            }
+                        }
                         break;
                     case "2":
                         //Generate District Report
