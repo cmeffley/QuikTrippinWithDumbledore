@@ -2,7 +2,7 @@
 using QuikTrippinWithDumbledore.Store;
 using System;
 using System.Collections.Generic;
-using
+
 namespace QuikTrippinWithDumbledore
 {
     class Program
