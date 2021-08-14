@@ -142,14 +142,31 @@ namespace QuikTrippinWithDumbledore
                         switch (UserInputDistrictOrStore)
                         {
                             case "1": //Add District
-                                var districtRepo = new DistrictRepository();
-                                    
+                                var storeRepoForDistricts = new StoreRepository();
+                                var allStores = storeRepoForDistricts.GetStores();
+                                Console.WriteLine("Enter the district name"); //can I create a method to check if name exists?
+                                var districtNameInput = Console.ReadLine();
+                                Console.WriteLine("Choose stores by Store Number to add to new district:");
+                                foreach (var eachStore in allStores)
+                                {
+                                    Console.WriteLine($"Store Number: { eachStore.StoreNumber}");
+                                }
+
+                                //var employeeRepo = new EmployeeRepository();
+                                //var allStoreManagers = employeeRepo.GetStoreManager() //come back to this if we have time
+
+                              
+
+                                //var districtRepo = new DistrictRepository();
+                                //var district = new DistrictBase()
+                                //{
+                                //    DistrictName = districtNameInput,
+                                //};
 
                                 break;
                             case "2": //Add Store
                                 var storeRepo = new StoreRepository();
-
-                                Console.WriteLine("Create the store's ID number, e.g. 001");
+                                Console.WriteLine("Create a store ID number, e.g. 001");
                                 var storeNumberInput = Convert.ToInt32(Console.ReadLine());
                                 if (storeRepo.DoesStoreIdAlreadyExist(storeNumberInput))
                                 {

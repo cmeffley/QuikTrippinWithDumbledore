@@ -161,7 +161,7 @@ namespace QuikTrippinWithDumbledore.Store
             {
                 if (store.StoreNumber == storeNumber)
                 {
-                    return true; //
+                    return true;
                 }
             }
             return false;
