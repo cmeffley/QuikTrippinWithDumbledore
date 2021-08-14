@@ -1,4 +1,5 @@
-﻿using QuikTrippinWithDumbledore.Employee;
+﻿using QuikTrippinWithDumbledore.District;
+using QuikTrippinWithDumbledore.Employee;
 using QuikTrippinWithDumbledore.Store;
 using System;
 using System.Collections.Generic;
@@ -135,12 +136,15 @@ namespace QuikTrippinWithDumbledore
                         }
                     case "4":
                         //Add a Store/District
-                        Console.WriteLine("1) Add a District\n2) Add a Store\n3) Main Menu");
+                        var storeSubMenu = "1) Add a District\n2) Add a Store\n3) Main Menu\n4) Return to Main Menu";
+                        Console.WriteLine(storeSubMenu);
                         var UserInputDistrictOrStore = Console.ReadLine();
                         switch (UserInputDistrictOrStore)
                         {
                             case "1": //Add District
-                                Console.WriteLine("Add");
+                                var districtRepo = new DistrictRepository();
+                                    
+
                                 break;
                             case "2": //Add Store
                                 var storeRepo = new StoreRepository();
@@ -149,11 +153,12 @@ namespace QuikTrippinWithDumbledore
                                 var storeNumberInput = Convert.ToInt32(Console.ReadLine());
                                 if (storeRepo.DoesStoreIdAlreadyExist(storeNumberInput))
                                 {
-
+                                    Console.WriteLine($"{storeNumberInput} already exists - please try a different number");
+                                    //Console.WriteLine(storeSubMenu);
                                 }
 
                                 Console.WriteLine("Enter Yearly Gas Sales");
-                                var storeYearlyGasSales = Convert.ToInt32(Console.ReadLine());
+                                var storeYearlyGasSales = Convert.ToInt32(Console.ReadLine()); //needs to be decimal?
                                 Console.WriteLine("Enter Current Quarter Gas Sales");
                                 var storeCurrentQtrGasSales = Convert.ToInt32(Console.ReadLine());
 
@@ -164,7 +169,9 @@ namespace QuikTrippinWithDumbledore
                                     CurrentQuarterGasSales = storeCurrentQtrGasSales
                                 };
                                 storeRepo.Add(store);
-                                
+                                Console.WriteLine($"You added Store #{storeNumberInput}.");
+                                Console.ReadKey();
+                                //Console.WriteLine(storeSubMenu);
 
                                 break;
                             default:
