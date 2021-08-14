@@ -144,24 +144,32 @@ namespace QuikTrippinWithDumbledore
                             case "1": //Add District
                                 var storeRepoForDistricts = new StoreRepository();
                                 var allStores = storeRepoForDistricts.GetStores();
-                                Console.WriteLine("Enter the district name"); //can I create a method to check if name exists?
+                                Console.WriteLine("Enter the new district's name"); 
+                                //is there time to create a method to check if name exists?
                                 var districtNameInput = Console.ReadLine();
-                                Console.WriteLine("Choose stores by Store Number to add to new district:");
+                                Console.WriteLine("Available Stores to Add");
                                 foreach (var eachStore in allStores)
                                 {
-                                    Console.WriteLine($"Store Number: { eachStore.StoreNumber}");
+                                    var chooseStoreNumber = eachStore.StoreNumber;
+                                    Console.WriteLine($"Store Number: { chooseStoreNumber}");
                                 }
+                                Console.WriteLine();
 
-                                //var employeeRepo = new EmployeeRepository();
-                                //var allStoreManagers = employeeRepo.GetStoreManager() //come back to this if we have time
+                                Console.WriteLine("Choose stores to add to your new District");
+                                var districtStoreNumberInput = Convert.ToInt32(Console.ReadLine());
+                                var storeToAddToList = storeRepoForDistricts.GetSingleStore(districtStoreNumberInput);
 
-                              
+                                var districtStoreList = new List<StoreBase>();
+                                districtStoreList.Add(storeToAddToList);
 
-                                //var districtRepo = new DistrictRepository();
-                                //var district = new DistrictBase()
-                                //{
-                                //    DistrictName = districtNameInput,
-                                //};
+                                var districtRepo = new DistrictRepository();
+
+                                var district = new DistrictBase()
+                                {
+                                    DistrictName = districtNameInput,
+                                    StoreList = districtStoreList,
+                                    //DistrictManager = 
+                                };
 
                                 break;
                             case "2": //Add Store
@@ -175,9 +183,9 @@ namespace QuikTrippinWithDumbledore
                                 }
 
                                 Console.WriteLine("Enter Yearly Gas Sales");
-                                var storeYearlyGasSales = Convert.ToInt32(Console.ReadLine()); //needs to be decimal?
+                                var storeYearlyGasSales = Convert.ToDecimal(Console.ReadLine());
                                 Console.WriteLine("Enter Current Quarter Gas Sales");
-                                var storeCurrentQtrGasSales = Convert.ToInt32(Console.ReadLine());
+                                var storeCurrentQtrGasSales = Convert.ToDecimal(Console.ReadLine());
 
                                 var store = new StoreBase()
                                 {
