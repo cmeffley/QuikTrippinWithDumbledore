@@ -189,10 +189,19 @@ namespace QuikTrippinWithDumbledore
                         switch (UserInputDistrictOrStore)
                         {
                             case "1": //Add District
+                                var newDistrictRepo = new DistrictRepository();
                                 var storeRepoForDistricts = new StoreRepository();
                                 var allStores = storeRepoForDistricts.GetStores();
-                                Console.WriteLine("Enter the new district's name"); 
+
+                                Console.WriteLine("Enter the new district's name");
+
                                 var districtNameInput = Console.ReadLine();
+                                if (newDistrictRepo.DoesDistrictNameExist(districtNameInput))
+                                {
+                                    Console.WriteLine($"{districtNameInput} already exists... please Enter to start over");
+                                    Console.ReadKey();
+                                    break;
+                                }
 
                                 Console.WriteLine("Available Stores to Add");
                                 foreach (var eachStore in allStores)
@@ -200,7 +209,7 @@ namespace QuikTrippinWithDumbledore
                                     var chooseStoreNumber = eachStore.StoreNumber;
                                     Console.WriteLine($"Store Number: { chooseStoreNumber}");
                                 }
-                                //Console.WriteLine("");
+                                Console.WriteLine("test");
 
                                 //set up the stuff that needs to be shared across iterations first before loop
                                 var districtStoreList = new List<StoreBase>();
@@ -230,7 +239,6 @@ namespace QuikTrippinWithDumbledore
                                 var chosenDisrictManger = districtEmployeeRepo.GetDistrictManager(chosenDistrictManagerId);
                                 districtManagerList.Add(chosenDisrictManger);
 
-                                var newDistrictRepo = new DistrictRepository();
                                 var newDistrict = new DistrictBase()
                                 {
                                     DistrictName = districtNameInput,
@@ -238,9 +246,8 @@ namespace QuikTrippinWithDumbledore
                                     DistrictManager = districtManagerList
                                 };
                                 newDistrictRepo.AddNewDistrict(newDistrict);
-                                Console.WriteLine($"Added new district to database: " +
-                                    $"\n District Name:{newDistrict.DistrictName} " +
-                                    $"\n District Manger: {newDistrict.DistrictManager[0]}");
+                                Console.WriteLine($"Added a new District called {newDistrict.DistrictName}.");
+                                    //$"\n District Manager: {newDistrict.DistrictManager}");
                                 break;
 
                             case "2": //Add Store
@@ -249,8 +256,9 @@ namespace QuikTrippinWithDumbledore
                                 var storeNumberInput = Convert.ToInt32(Console.ReadLine());
                                 if (storeRepo.DoesStoreIdAlreadyExist(storeNumberInput))
                                 {
-                                    Console.WriteLine($"{storeNumberInput} already exists - please try a different number");
-                                    //Console.WriteLine(storeSubMenu);
+                                    Console.WriteLine($"{storeNumberInput} already exists... please Enter to start over");
+                                    Console.ReadKey();
+                                    break;
                                 }
 
                                 Console.WriteLine("Enter Yearly Gas Sales");

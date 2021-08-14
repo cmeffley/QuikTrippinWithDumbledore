@@ -148,5 +148,13 @@ namespace QuikTrippinWithDumbledore.District
             var districtToRemove = _districts.First(district => district.DistrictName == districtName);
             _districts.Remove(districtToRemove);
         }
+
+        public bool DoesDistrictNameExist(string districtName)
+        {
+            var repo = new DistrictRepository();
+            var districts = repo.GetDistricts();
+
+            return districts.Any(district => district.DistrictName == districtName);
+        }
     }
 }
