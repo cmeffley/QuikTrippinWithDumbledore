@@ -459,16 +459,16 @@ namespace QuikTrippinWithDumbledore
                                 var districtStoreList = new List<StoreBase>();
 
                                 Console.WriteLine("Choose store(s) to add to your new District or type '0' to continue...");
-                                var addStoresToDistrictLoop = true;
-                                while (addStoresToDistrictLoop)
+                                
+                                while (true)
                                 {
                                     var districtStoreNumberInput = Convert.ToInt32(Console.ReadLine());
-                                    var storeToAddToList = storeRepoForDistricts.GetSingleStore   (districtStoreNumberInput);
-                                    districtStoreList.Add(storeToAddToList);
                                     if (districtStoreNumberInput == 0)
                                     {
-                                        addStoresToDistrictLoop = false;
+                                        break;
                                     }
+                                    var storeToAddToList = storeRepoForDistricts.GetSingleStore   (districtStoreNumberInput);
+                                    districtStoreList.Add(storeToAddToList);
                                 }
                                 Console.WriteLine("To choose the district manager, enter their EmployeeID...");
                                 var districtEmployeeRepo = new EmployeeRepository();
